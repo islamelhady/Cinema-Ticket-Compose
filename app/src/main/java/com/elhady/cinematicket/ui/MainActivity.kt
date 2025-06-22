@@ -1,4 +1,4 @@
-package com.elhady.cinematicket
+package com.elhady.cinematicket.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
