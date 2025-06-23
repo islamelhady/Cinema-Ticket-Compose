@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.elhady.cinematicket.ui.screen.booking.Hours
-import com.elhady.cinematicket.ui.theme.LightGrey
+import com.elhady.cinematicket.ui.theme.Grey
 
 @Composable
 fun TimePicker(hours: List<Hours>) {
@@ -38,7 +38,7 @@ fun TimePickerItem(hours: Hours) {
         modifier = Modifier
             .border(
                 1.dp,
-                if (hours.isSelected) Color.DarkGray else LightGrey,
+                if (hours.isSelected) Color.DarkGray else Color.Gray,
                 RoundedCornerShape(16.dp)
             )
             .background(
@@ -50,7 +50,7 @@ fun TimePickerItem(hours: Hours) {
         Text(
             text = hours.hour,
             style = MaterialTheme.typography.bodyLarge,
-            color = Color.Black
+            color = if (hours.isSelected) Color.White else Grey
         )
     }
 }

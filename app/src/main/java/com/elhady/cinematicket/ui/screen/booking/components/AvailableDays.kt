@@ -24,7 +24,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.elhady.cinematicket.ui.screen.booking.Day
-import com.elhady.cinematicket.ui.screen.booking.availableDays
 import com.elhady.cinematicket.ui.theme.Grey
 import com.elhady.cinematicket.ui.theme.LightGrey
 import com.elhady.cinematicket.ui.theme.OpenSans
@@ -80,7 +79,12 @@ fun AvailableDays(
 @Preview
 fun AvailableDaysPreview() {
     AvailableDays(
-        availableDays = availableDays,
+        availableDays = listOf(
+            Day(dayNum = 14, dayName = "Thu", isSelected = false, id = 1),
+            Day(dayNum = 15, dayName = "Fri", isSelected = true, id = 2),
+            Day(dayNum = 16, dayName = "Sat", isSelected = false, id = 3),
+            Day(dayNum = 17, dayName = "Sun", isSelected = false, id = 4),
+        ),
         onDayClick = {}
     )
 }

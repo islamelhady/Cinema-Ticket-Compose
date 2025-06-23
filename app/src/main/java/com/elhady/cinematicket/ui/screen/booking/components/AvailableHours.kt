@@ -23,7 +23,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.elhady.cinematicket.ui.screen.booking.Hours
-import com.elhady.cinematicket.ui.screen.booking.availableHours
 import com.elhady.cinematicket.ui.theme.Grey
 import com.elhady.cinematicket.ui.theme.LightGrey
 import com.elhady.cinematicket.ui.theme.OpenSans
@@ -68,7 +67,14 @@ fun AvailableHours(
 @Preview
 fun AvailableHoursPreview() {
     AvailableHours(
-        availableHours = availableHours,
+        availableHours = listOf(
+            Hours(hour = "10:00", isSelected = true, id = 1),
+            Hours(hour = "11:00", isSelected = false, id = 2),
+            Hours(hour = "12:00", isSelected = false, id = 3),
+            Hours(hour = "13:00", isSelected = false, id = 4),
+            Hours(hour = "14:00", isSelected = false, id = 5),
+            Hours(hour = "15:00", isSelected = false, id = 6),
+        ),
         onHourClick = {}
     )
 }
