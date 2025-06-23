@@ -14,15 +14,18 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.LightGray
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.elhady.cinematicket.ui.screen.booking.Hours
+import com.elhady.cinematicket.ui.screen.booking.hours
 import com.elhady.cinematicket.ui.theme.Grey
+import com.elhady.cinematicket.ui.theme.LightGrey
 
 @Composable
 fun TimePicker(hours: List<Hours>) {
     LazyRow(
-        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 16.dp),
+        contentPadding = PaddingValues(horizontal = 32.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         items(hours) {
@@ -58,17 +61,7 @@ fun TimePickerItem(hours: Hours) {
 @Preview
 @Composable
 fun TimePickerPreview() {
-    TimePicker(
-        hours = listOf(
-            Hours(hour = "10:00", isSelected = true, id = 1),
-            Hours(hour = "11:00", isSelected = false, id = 2),
-            Hours(hour = "12:00", isSelected = false, id = 3),
-            Hours(hour = "13:00", isSelected = false, id = 4),
-            Hours(hour = "14:00", isSelected = false, id = 5),
-            Hours(hour = "15:00", isSelected = false, id = 6),
-            Hours(hour = "16:00", isSelected = false, id = 7),
-        )
-    )
+    TimePicker(hours = hours)
 }
 
 @Preview

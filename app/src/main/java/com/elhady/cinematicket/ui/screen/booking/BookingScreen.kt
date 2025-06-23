@@ -46,20 +46,5 @@ fun BookingScreen(
 @Preview(showSystemUi = true)
 @Composable
 fun BookingScreenPreview() {
-    BookingScreen(
-        days = listOf(
-            Day(dayNum = 14, dayName = "Thu", isSelected = false, id = 1),
-            Day(dayNum = 15, dayName = "Fri", isSelected = true, id = 2),
-            Day(dayNum = 16, dayName = "Sat", isSelected = false, id = 3),
-            Day(dayNum = 17, dayName = "Sun", isSelected = false, id = 4),
-            ),
-        hours = listOf(
-            Hours(hour = "10:00", isSelected = true, id = 1),
-            Hours(hour = "11:00", isSelected = false, id = 2),
-            Hours(hour = "12:00", isSelected = false, id = 3),
-            Hours(hour = "13:00", isSelected = false, id = 4),
-            Hours(hour = "14:00", isSelected = false, id = 5),
-            Hours(hour = "15:00", isSelected = false, id = 6),
-        )
-    )
+    BookingScreen(days = days, hours = hours)
 }

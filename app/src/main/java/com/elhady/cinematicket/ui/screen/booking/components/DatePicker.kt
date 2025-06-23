@@ -22,6 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.elhady.cinematicket.ui.screen.booking.Day
+import com.elhady.cinematicket.ui.screen.booking.days
 import com.elhady.cinematicket.ui.theme.Grey
 import com.elhady.cinematicket.ui.theme.LightGrey
 
@@ -68,17 +69,7 @@ private fun DataPickerItem(day: Day) {
 @Preview(name = "DataPicker Preview")
 @Composable
 fun DataPickerPreview() {
-    DatePicker(
-        days = listOf(
-            Day(dayNum = 14, dayName = "Thu", isSelected = false, id = 1),
-            Day(dayNum = 15, dayName = "Fri", isSelected = true, id = 2),
-            Day(dayNum = 16, dayName = "Sat", isSelected = false, id = 3),
-            Day(dayNum = 17, dayName = "Sun", isSelected = false, id = 4),
-            Day(dayNum = 18, dayName = "Mon", isSelected = false, id = 5),
-            Day(dayNum = 19, dayName = "Tue", isSelected = false, id = 6),
-            Day(dayNum = 20, dayName = "Wed", isSelected = false, id = 7)
-        )
-    )
+    DatePicker(days = days)
 }
 
 @Preview(name = "DataPickerItem Preview")
