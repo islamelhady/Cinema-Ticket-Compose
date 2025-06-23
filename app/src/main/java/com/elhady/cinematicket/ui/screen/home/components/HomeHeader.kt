@@ -21,12 +21,12 @@ fun HomeHeader(
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         ) {
         Chip(
-            text = "Now Showing",
+            tag = "Now Showing",
             isSelected = selectedTab == 0,
             onClick = { onTabSelected(0) }
         )
         Chip(
-            text = "Coming Soon",
+            tag = "Coming Soon",
             isSelected = selectedTab == 1,
             onClick = { onTabSelected(1) }
         )

@@ -30,8 +30,9 @@ import com.elhady.cinematicket.ui.components.MovieDuration
 import com.elhady.cinematicket.ui.screen.home.components.BlurredImage
 import com.elhady.cinematicket.ui.screen.home.components.BottomNavBarItem
 import com.elhady.cinematicket.ui.screen.home.components.HomePager
-import com.elhady.cinematicket.ui.screen.home.components.MovieName
+import com.elhady.cinematicket.ui.components.MovieInfo
 import com.elhady.cinematicket.ui.screen.home.model.Movie
+import com.elhady.cinematicket.ui.theme.CinemaTicketTheme
 import com.elhady.cinematicket.ui.theme.Orange
 
 @Composable
@@ -57,13 +58,13 @@ fun HomeScreen(
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     Chip(
-                        text = "Now Showing",
+                        tag = "Now Showing",
                         borderWidth = 0.dp,
                         textColor = White,
                         backgroundColor = Orange,
                     )
                     Chip(
-                        text = "Coming Soon",
+                        tag = "Coming Soon",
                     )
                 }
             }
@@ -77,21 +78,7 @@ fun HomeScreen(
                     iconSize = 24.dp
                 )
             }
-            item {
-                MovieName(movieName = movies[pagerState.currentPage].name)
-            }
-            item {
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    Chip(
-                        text = "Action",
-                    )
-                    Chip(
-                        text = "Horror",
-                    )
-                }
-            }
+            item { MovieInfo() }
         }
         Row(
             modifier = Modifier
@@ -139,29 +126,31 @@ fun HomeScreen(
 @Preview
 @Composable
 fun HomeScreenPreview() {
-    HomeScreen(
-        movies = listOf(
-            Movie(
-                id = 1,
-                name = "Fantastic Beasts: The Secrets of Dumbledore",
-                image = R.drawable.fantastic_beasts,
-                category = listOf("Action", "Horror"),
-                duration = "1h 46m"
-            ),
-            Movie(
-                id = 2,
-                name = "Dr. Strange in the Multiverse of Madness",
-                image = R.drawable.dr_strange,
-                category = listOf("Action", "Horror"),
-                duration = "1h 46m"
-            ),
-            Movie(
-                id = 3,
-                name = "Morbius",
-                image = R.drawable.morbius,
-                category = listOf("Action", "Horror"),
-                duration = "1h 46m"
+    CinemaTicketTheme {
+        HomeScreen(
+            movies = listOf(
+                Movie(
+                    id = 1,
+                    name = "Fantastic Beasts: The Secrets of Dumbledore",
+                    image = R.drawable.fantastic_beasts,
+                    category = listOf("Action", "Horror"),
+                    duration = "1h 46m"
+                ),
+                Movie(
+                    id = 2,
+                    name = "Dr. Strange in the Multiverse of Madness",
+                    image = R.drawable.dr_strange,
+                    category = listOf("Action", "Horror"),
+                    duration = "1h 46m"
+                ),
+                Movie(
+                    id = 3,
+                    name = "Morbius",
+                    image = R.drawable.morbius,
+                    category = listOf("Action", "Horror"),
+                    duration = "1h 46m"
+                )
             )
         )
-    )
+    }
 }

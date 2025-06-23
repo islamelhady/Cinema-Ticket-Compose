@@ -12,12 +12,12 @@ import androidx.compose.ui.unit.dp
 import com.elhady.cinematicket.R
 
 @Composable
-fun MovieDescription(description: String, modifier: Modifier = Modifier.Companion) {
+fun MovieDescription(modifier: Modifier = Modifier) {
     Text(
         modifier = modifier
             .padding(horizontal = 20.dp)
             .padding(bottom = 32.dp),
-        text = description,
+        text = stringResource(R.string.movieDescription),
         style = MaterialTheme.typography.bodyMedium,
         maxLines = 3,
         minLines = 3,
@@ -28,5 +28,5 @@ fun MovieDescription(description: String, modifier: Modifier = Modifier.Companio
 @Composable
 @Preview
 fun MovieDescriptionPreview(){
-    MovieDescription(stringResource(R.string.movieDescription))
+    MovieDescription()
 }
