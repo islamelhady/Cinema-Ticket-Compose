@@ -27,7 +27,7 @@ fun MovieDuration(
     textColor: Color = Color.Gray,
     iconTint: Color = Color.Gray,
     textSize: TextUnit = 16.sp,
-    iconSize: Dp = 32.dp,
+    iconSize: Dp = 24.dp,
 ) {
     Row(
         modifier = modifier,
