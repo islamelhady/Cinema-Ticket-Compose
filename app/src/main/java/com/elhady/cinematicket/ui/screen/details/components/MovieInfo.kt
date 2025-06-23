@@ -17,6 +17,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.elhady.cinematicket.ui.components.Chip
 import com.elhady.cinematicket.ui.theme.Grey
 import com.elhady.cinematicket.ui.theme.LightGrey
 
@@ -44,8 +45,8 @@ fun MovieInfo(
         Row(
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            GenreTag(tag = "Fantasy")
-            GenreTag(tag = "Adventure")
+            Chip(tag = "Fantasy")
+            Chip(tag = "Adventure")
         }
     }
 }
@@ -70,22 +71,6 @@ private fun RatingItem(score: String, source: String) {
         )
         Text(text = source, style = MaterialTheme.typography.bodySmall, color = Grey)
     }
-}
-
-@Composable
-private fun GenreTag(tag: String) {
-    Text(
-        text = tag,
-        modifier = Modifier
-            .border(
-                1.dp,
-                LightGrey,
-                RoundedCornerShape(16.dp)
-            )
-            .padding(horizontal = 12.dp, vertical = 4.dp),
-        style = MaterialTheme.typography.bodySmall,
-        color = Color.Black
-    )
 }
 
 @Composable

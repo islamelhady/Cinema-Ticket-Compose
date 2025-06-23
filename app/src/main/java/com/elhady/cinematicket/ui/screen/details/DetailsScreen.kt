@@ -30,42 +30,39 @@ import com.elhady.cinematicket.ui.theme.Orange
 
 @Composable
 fun DetailsScreen() {
-    Box(modifier = Modifier.fillMaxSize()) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .verticalScroll(rememberScrollState())
-                .padding(bottom = 80.dp)
-        ) {
-            DetailsHeader()
-            MovieInfo()
-            CastList()
-            TextDescription(description = "Professor Albus Dumbledore knows the powerful dark wizard Gellert Grindelwald is moving to seize control of the wizarding world. Unable to stop him alone, he entrusts Magizoologist Newt Scamander to lead an intrepid team of wizards, witches and one brave Muggle baker on a dangerous mission, where they encounter old and new beasts and clash with Grindelwald’s growing legion of followers.")
-        }
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState())
+    ) {
+        DetailsHeader()
+        MovieInfo()
+        CastList()
+        TextDescription(description = "Professor Albus Dumbledore knows the powerful dark wizard Gellert Grindelwald is moving to seize control of the wizarding world. Unable to stop him alone, he entrusts Magizoologist Newt Scamander to lead an intrepid team of wizards, witches and one brave Muggle baker on a dangerous mission, where they encounter old and new beasts and clash with Grindelwald’s growing legion of followers.")
+    }
 
-        Button(
-            onClick = { },
-            modifier = Modifier
-                .align(Alignment.BottomCenter)
-                .padding(16.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = Orange),
-            shape = RoundedCornerShape(24.dp)
+    Button(
+        onClick = { },
+        modifier = Modifier
+            .padding(16.dp),
+        colors = ButtonDefaults.buttonColors(containerColor = Orange),
+        shape = RoundedCornerShape(24.dp)
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                Icon(
-                    imageVector = Icons.Default.DateRange,
-                    contentDescription = null,
-                    modifier = Modifier
-                        .size(24.dp)
-                )
-                Text(text = "Booking", style = MaterialTheme.typography.titleSmall)
-            }
+            Icon(
+                imageVector = Icons.Default.DateRange,
+                contentDescription = null,
+                modifier = Modifier
+                    .size(24.dp)
+            )
+            Text(text = "Booking", style = MaterialTheme.typography.titleSmall)
         }
     }
+
 }
 
 @Composable

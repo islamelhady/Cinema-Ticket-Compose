@@ -24,7 +24,7 @@ import com.elhady.cinematicket.ui.theme.Orange
 @Composable
 fun Chip(
     modifier: Modifier = Modifier,
-    text: String,
+    tag: String,
     onClick: () -> Unit = {},
     isSelected: Boolean = false,
     borderColor: Color = Grey,
@@ -46,7 +46,7 @@ fun Chip(
             .clickable { onClick() }
             .padding(horizontal = 12.dp, vertical = 8.dp),
 
-        text = text,
+        text = tag,
         style = TextStyle(
             color = if (isSelected) White else textColor,
             fontSize = 14.sp,
@@ -61,7 +61,7 @@ fun Chip(
 @Composable
 private fun ChipPreview() {
     Chip(
-        text = "Coming Soon",
+        tag = "Coming Soon",
         backgroundColor = Orange,
         borderColor = Orange,
         isSelected = true
