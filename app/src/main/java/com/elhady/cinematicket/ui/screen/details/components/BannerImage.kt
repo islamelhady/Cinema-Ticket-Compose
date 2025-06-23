@@ -10,11 +10,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.elhady.cinematicket.R
 
 @Composable
-fun BannerImage() {
+fun PosterBanner() {
     Image(
         modifier = Modifier
             .fillMaxWidth(),
-        painter = painterResource(id = R.drawable.fantastic_beasts),
+        painter = painterResource(id = R.drawable.fantastic_beasts_banner),
         contentDescription = "Movie Banner",
         contentScale = ContentScale.FillBounds,
     )
@@ -22,6 +22,6 @@ fun BannerImage() {
 
 @Composable
 @Preview
-fun BannerImagePreview() {
-    BannerImage()
+fun PosterBannerPreview() {
+    PosterBanner()
 }
