@@ -14,7 +14,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.elhady.cinematicket.R
 import com.elhady.cinematicket.ui.theme.Orange
-import com.elhady.cinematicket.ui.theme.White
 
 @Composable
 fun BottomNavBarItem(
@@ -39,7 +38,7 @@ fun BottomNavBarItem(
 private fun BottomBarItemPreview() {
     BottomNavBarItem(
         icon = painterResource(R.drawable.ic_movie),
-        iconTint = White,
+        iconTint = Color.White,
         backgroundColor = Orange
     )
 }
