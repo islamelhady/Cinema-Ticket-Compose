@@ -6,17 +6,10 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.statusBars
-import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -24,11 +17,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.elhady.cinematicket.R
+import com.elhady.cinematicket.ui.components.CircularIcon
 import com.elhady.cinematicket.ui.screen.booking.components.BookingTickets
 import com.elhady.cinematicket.ui.screen.booking.components.ScreenCinema
 import com.elhady.cinematicket.ui.screen.booking.components.SeatSelection
@@ -44,19 +36,7 @@ fun BookingScreen() {
     ) {
         // Header
 
-        Icon(
-            modifier = Modifier
-                .windowInsetsPadding(WindowInsets.statusBars)
-                .padding(horizontal = 16.dp)
-                .padding(top = 16.dp)
-                .clip(CircleShape)
-                .background(Grey.copy(alpha = 0.4f))
-                .padding(8.dp)
-                .size(28.dp),
-            painter = painterResource(R.drawable.close),
-            contentDescription = null,
-            tint = Color.White,
-        )
+        CircularIcon()
         ScreenCinema()
         SeatSelection( )
 
@@ -119,7 +99,11 @@ private fun TimePicker() {
                 modifier = Modifier
                     .clip(RoundedCornerShape(16.dp))
                     .background(if (isSelected) Color.Transparent else Color.Transparent)
-                    .border(1.dp, if (isSelected) Color.Transparent else LightGrey, RoundedCornerShape(16.dp))
+                    .border(
+                        1.dp,
+                        if (isSelected) Color.Transparent else LightGrey,
+                        RoundedCornerShape(16.dp)
+                    )
                     .padding(horizontal = 16.dp, vertical = 8.dp)
                     .then(if (isSelected) Modifier.background(Color.LightGray.copy(alpha = 0.5f)) else Modifier),
                 contentAlignment = Alignment.Center
@@ -134,7 +118,7 @@ private fun TimePicker() {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showSystemUi = true)
 @Composable
 fun BookingScreenPreview() {
     BookingScreen()

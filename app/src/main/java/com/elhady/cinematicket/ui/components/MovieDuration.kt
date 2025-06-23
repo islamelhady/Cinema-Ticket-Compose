@@ -23,7 +23,7 @@ import com.elhady.cinematicket.ui.theme.OpenSans
 @Composable
 fun MovieDuration(
     modifier: Modifier = Modifier,
-    movieDuration: String,
+    movieDuration: String = "2h 23m",
     textColor: Color = Color.Gray,
     iconTint: Color = Color.Gray,
     textSize: TextUnit = 16.sp,
