@@ -44,7 +44,7 @@ val Typography = Typography(
     ),
     bodySmall = TextStyle(
         fontFamily = OpenSans,
-        fontWeight = FontWeight.Normal,
+        fontWeight = FontWeight.Medium,
         fontSize = 12.sp,
     ),
     labelSmall = TextStyle(

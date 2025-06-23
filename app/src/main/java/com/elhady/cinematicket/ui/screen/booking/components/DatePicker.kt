@@ -5,8 +5,11 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -18,47 +21,68 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.elhady.cinematicket.ui.screen.booking.Day
 import com.elhady.cinematicket.ui.theme.Grey
 import com.elhady.cinematicket.ui.theme.LightGrey
 
 @Composable
-fun DatePicker() {
+fun DatePicker(days: List<Day>) {
     LazyRow(
-        contentPadding = PaddingValues(horizontal = 16.dp),
+        modifier = Modifier.padding(bottom = 16.dp),
+        contentPadding = PaddingValues(horizontal = 32.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        items(10) { index ->
-            val isSelected = index == 2
-            Column(
-                modifier = Modifier
-                    .clip(RoundedCornerShape(16.dp))
-                    .background(if (isSelected) Color.DarkGray else Color.Transparent)
-                    .border(
-                        if (isSelected) 0.dp else 1.dp,
-                        LightGrey,
-                        RoundedCornerShape(16.dp)
-                    )
-                    .padding(horizontal = 16.dp, vertical = 8.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Text(
-                    text = "${14 + index}",
-                    style = MaterialTheme.typography.titleMedium,
-                    color = if (isSelected) Color.White else Color.Black,
-                    fontWeight = FontWeight.Bold
-                )
-                Text(
-                    text = "Thu",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = if (isSelected) Color.White else Grey
-                )
-            }
+        items(days) { day ->
+            DataPickerItem(day = day)
         }
     }
 }
 
-@Preview
 @Composable
-fun DataPickerPreview(){
-    DatePicker()
+private fun DataPickerItem(day: Day) {
+    Column(
+        modifier = Modifier
+            .clip(RoundedCornerShape(16.dp))
+            .background(color = if (day.isSelected) Color.DarkGray else Color.Transparent)
+            .border(
+                width = 1.dp,
+                color = if (day.isSelected) Color.DarkGray else Color.Gray,
+                shape = RoundedCornerShape(16.dp)
+            )
+            .padding(horizontal = 16.dp, vertical = 12.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            text = day.dayNum.toString(),
+            style = MaterialTheme.typography.titleMedium,
+            color = if (day.isSelected) Color.White else Color.Black,
+        )
+        Text(
+            text = day.dayName,
+            style = MaterialTheme.typography.bodySmall,
+            color = if (day.isSelected) Color.White else Grey
+        )
+    }
+}
+
+@Preview(name = "DataPicker Preview")
+@Composable
+fun DataPickerPreview() {
+    DatePicker(
+        days = listOf(
+            Day(dayNum = 14, dayName = "Thu", isSelected = false, id = 1),
+            Day(dayNum = 15, dayName = "Fri", isSelected = true, id = 2),
+            Day(dayNum = 16, dayName = "Sat", isSelected = false, id = 3),
+            Day(dayNum = 17, dayName = "Sun", isSelected = false, id = 4),
+            Day(dayNum = 18, dayName = "Mon", isSelected = false, id = 5),
+            Day(dayNum = 19, dayName = "Tue", isSelected = false, id = 6),
+            Day(dayNum = 20, dayName = "Wed", isSelected = false, id = 7)
+        )
+    )
+}
+
+@Preview(name = "DataPickerItem Preview")
+@Composable
+fun DataPickerItemPreview() {
+    DataPickerItem(day = Day(dayNum = 14, dayName = "Thu", isSelected = false, id = 1))
 }
