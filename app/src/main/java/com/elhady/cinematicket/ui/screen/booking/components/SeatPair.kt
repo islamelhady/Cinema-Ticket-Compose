@@ -29,9 +29,6 @@ fun SeatPair(
     onSeatClick: (Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val color1 = getSeatColor(seat1.status)
-    val color2 = getSeatColor(seat2.status)
-
     Box(
         modifier = modifier.padding(4.dp),
         contentAlignment = Alignment.Center,
@@ -40,15 +37,15 @@ fun SeatPair(
             painter = painterResource(id = R.drawable.seat_grouper),
             modifier = Modifier.scale(1.5f),
             contentDescription = null,
-            tint = if (color1 == Orange && color2 == Orange) Orange.copy(alpha = .2f) else Color.DarkGray.copy(alpha = .6f),
+            tint = if (seat1.status == SeatStatus.SELECTED && seat2.status == SeatStatus.SELECTED) Orange.copy(alpha = .2f) else Color.DarkGray.copy(alpha = .6f),
         )
         Row(
             modifier = Modifier
                 .padding(4.dp),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            SeatIcon(seat = seat1, color = color1, onClick = onSeatClick)
-            SeatIcon(seat = seat2, color = color2, onClick = onSeatClick)
+            SeatIcon(seat = seat1, onClick = onSeatClick)
+            SeatIcon(seat = seat2, onClick = onSeatClick)
         }
     }
 }
@@ -56,13 +53,12 @@ fun SeatPair(
 @Composable
 private fun SeatIcon(
     seat: SeatUiState,
-    color: Color,
     onClick: (Int) -> Unit
 ) {
     Icon(
         painter = painterResource(id = R.drawable.cenima_seat),
         contentDescription = null,
-        tint = color,
+        tint = seat.color,
         modifier = Modifier
             .size(42.dp)
             .padding(bottom = 4.dp)
@@ -76,20 +72,12 @@ private fun SeatIcon(
     )
 }
 
-private fun getSeatColor(status: SeatStatus): Color {
-    return when (status) {
-        SeatStatus.AVAILABLE -> Color.White
-        SeatStatus.TAKEN -> Color.DarkGray
-        SeatStatus.SELECTED -> Orange
-    }
-}
-
 @Composable
 @Preview
 fun SeatPairPreview() {
     SeatPair(
-        seat1 = SeatUiState(1, SeatStatus.SELECTED),
-        seat2 = SeatUiState(2, SeatStatus.SELECTED),
+        seat1 = SeatUiState(1, SeatStatus.SELECTED, Orange),
+        seat2 = SeatUiState(2, SeatStatus.SELECTED, Orange),
         onSeatClick = {}
     )
 }

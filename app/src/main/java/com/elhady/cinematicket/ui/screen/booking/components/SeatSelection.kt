@@ -108,7 +108,7 @@ private fun SeatColumn(
 @Preview(showBackground = true)
 fun SeatSelectionPreview() {
     val mockSeats = List(30) { i ->
-        SeatUiState(id = i, status = SeatStatus.AVAILABLE)
+        SeatUiState(id = i, status = SeatStatus.AVAILABLE, color = Color.White)
     }
     SeatSelection(seats = mockSeats, onSeatClick = {})
 }
