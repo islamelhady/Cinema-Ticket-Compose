@@ -8,8 +8,11 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -33,25 +36,29 @@ fun BookingScreen() {
         modifier = Modifier
             .fillMaxSize()
             .background(Color.Black)
+            .verticalScroll(rememberScrollState())
     ) {
-        // Header
-
-        CircularIcon()
+        CircularIcon(modifier = Modifier.padding(top = 16.dp, start = 16.dp))
         ScreenCinema()
         SeatSelection( )
+        BottomSheet()
+    }
+}
 
-        // Bottom Sheet Style Content
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .clip(RoundedCornerShape(topStart = 32.dp, topEnd = 32.dp))
-                .background(Color.White)
-                .padding(vertical = 16.dp)
-        ) {
-            DatePicker()
-            TimePicker()
-            BookingTickets()
-        }
+@Composable
+private fun BottomSheet() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(
+                Color.White,
+                shape = RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp)
+            )
+            .padding(vertical = 16.dp)
+    ) {
+        DatePicker()
+        TimePicker()
+        BookingTickets()
     }
 }
 

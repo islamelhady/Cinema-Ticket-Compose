@@ -35,7 +35,7 @@ fun SeatSelection(
                 .wrapContentHeight(),
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
-            // Left Column
+            // Left Seats
             Column(
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
@@ -50,25 +50,29 @@ fun SeatSelection(
                 }
             }
 
-            // Middle Column
+            // Middle Seats
             Column(
                 modifier = Modifier.padding(top = 8.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 repeat(5) { rowIndex ->
-                    val color1 = if (rowIndex == 1 || rowIndex == 2) Orange else if (rowIndex == 3) Color.DarkGray else Color.White
-                    val color2 = if (rowIndex == 1 || rowIndex == 2) Orange else if (rowIndex == 3) Color.DarkGray else Color.White
+                    val color1 =
+                        if (rowIndex == 1 || rowIndex == 2) Orange else if (rowIndex == 3) Color.DarkGray else Color.White
+                    val color2 =
+                        if (rowIndex == 1 || rowIndex == 2) Orange else if (rowIndex == 3) Color.DarkGray else Color.White
                     SeatPair(color1, color2)
                 }
             }
 
-            // Right Column
+            // Right Seats
             Column(
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 repeat(5) { rowIndex ->
-                    val color1 = if (rowIndex == 0 || rowIndex == 2 || rowIndex == 4) Color.DarkGray else Color.White
-                    val color2 = if (rowIndex == 0 || rowIndex == 2 || rowIndex == 4) Color.DarkGray else Color.White
+                    val color1 =
+                        if (rowIndex == 0 || rowIndex == 2 || rowIndex == 4) Color.DarkGray else Color.White
+                    val color2 =
+                        if (rowIndex == 0 || rowIndex == 2 || rowIndex == 4) Color.DarkGray else Color.White
                     SeatPair(
                         color1 = color1,
                         color2 = color2,
@@ -78,11 +82,11 @@ fun SeatSelection(
             }
         }
 
-        Spacer(modifier = Modifier.height(32.dp))
-
         Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.Absolute.SpaceAround,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 32.dp, vertical = 16.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
         ) {
             SeatLegend(text = "Available", color = Color.White)
             SeatLegend(text = "Taken", color = Color.DarkGray)
@@ -94,6 +98,6 @@ fun SeatSelection(
 @Composable
 @Preview(showBackground = true)
 fun SeatSelectionPreview() {
-        SeatSelection()
+    SeatSelection()
 }
 

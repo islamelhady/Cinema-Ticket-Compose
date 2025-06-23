@@ -24,7 +24,7 @@ import com.elhady.cinematicket.ui.theme.Grey
 fun CircularIcon(
     modifier: Modifier = Modifier,
     icon: Painter = painterResource(id = R.drawable.close),
-    backgroundColor: Color = Grey.copy(alpha = 0.8f)
+    backgroundColor: Color = Grey.copy(alpha = 0.4f)
 ) {
     Icon(
         modifier = modifier
