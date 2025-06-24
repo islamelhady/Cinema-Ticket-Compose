@@ -1,4 +1,4 @@
-package com.elhady.cinematicket.ui.screen.details
+package com.elhady.cinematicket.ui.screen.details.model
 
 import com.elhady.cinematicket.R
 

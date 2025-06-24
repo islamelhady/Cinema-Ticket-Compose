@@ -18,6 +18,10 @@ import com.elhady.cinematicket.ui.components.CircularIcon
 import com.elhady.cinematicket.ui.screen.booking.components.BottomSheet
 import com.elhady.cinematicket.ui.screen.booking.components.ScreenCinema
 import com.elhady.cinematicket.ui.screen.booking.components.SeatSelection
+import com.elhady.cinematicket.ui.screen.booking.model.Day
+import com.elhady.cinematicket.ui.screen.booking.model.Hours
+import com.elhady.cinematicket.ui.screen.booking.model.days
+import com.elhady.cinematicket.ui.screen.booking.model.hours
 
 @Composable
 fun BookingScreen(

@@ -14,9 +14,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.elhady.cinematicket.R
-import com.elhady.cinematicket.ui.screen.details.Cast
-import com.elhady.cinematicket.ui.screen.details.cast
+import com.elhady.cinematicket.ui.screen.details.model.Cast
+import com.elhady.cinematicket.ui.screen.details.model.cast
 
 @Composable
 fun CastList(

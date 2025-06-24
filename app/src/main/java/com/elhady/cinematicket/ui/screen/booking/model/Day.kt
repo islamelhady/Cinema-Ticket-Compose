@@ -1,4 +1,4 @@
-package com.elhady.cinematicket.ui.screen.booking
+package com.elhady.cinematicket.ui.screen.booking.model
 
 data class Day(
     val id: Int,

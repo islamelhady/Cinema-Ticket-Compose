@@ -3,14 +3,10 @@ package com.elhady.cinematicket.ui.screen.details
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.statusBars
-import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -24,6 +20,8 @@ import com.elhady.cinematicket.ui.screen.details.components.HeaderDetails
 import com.elhady.cinematicket.ui.screen.details.components.MovieDescription
 import com.elhady.cinematicket.ui.screen.details.components.MovieRating
 import com.elhady.cinematicket.ui.screen.details.components.PosterBanner
+import com.elhady.cinematicket.ui.screen.details.model.Cast
+import com.elhady.cinematicket.ui.screen.details.model.cast
 import com.elhady.cinematicket.ui.theme.CinemaTicketTheme
 
 @Composable
