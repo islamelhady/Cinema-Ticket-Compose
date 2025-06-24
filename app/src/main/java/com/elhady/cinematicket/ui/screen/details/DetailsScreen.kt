@@ -27,7 +27,7 @@ import com.elhady.cinematicket.ui.screen.details.components.PosterBanner
 import com.elhady.cinematicket.ui.theme.CinemaTicketTheme
 
 @Composable
-fun DetailsScreen() {
+fun DetailsScreen(cast: List<Cast>) {
     Box(
         modifier = Modifier.fillMaxSize(),
     ) {
@@ -46,7 +46,7 @@ fun DetailsScreen() {
             ) {
                 MovieRating()
                 MovieInfo()
-                CastList()
+                CastList(cast = cast)
                 MovieDescription()
                 BookingButton(text = "Booking")
             }
@@ -59,6 +59,6 @@ fun DetailsScreen() {
 @Composable
 fun DetailsScreenPreview() {
     CinemaTicketTheme {
-        DetailsScreen()
+        DetailsScreen(cast = cast)
     }
 }
