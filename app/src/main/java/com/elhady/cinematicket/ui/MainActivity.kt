@@ -11,6 +11,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.elhady.cinematicket.ui.screen.booking.BookingScreen
+import com.elhady.cinematicket.ui.screen.booking.model.days
+import com.elhady.cinematicket.ui.screen.booking.model.hours
 import com.elhady.cinematicket.ui.theme.CinemaTicketTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,8 +24,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             CinemaTicketTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+                    BookingScreen(
+                        days = days,
+                        hours = hours,
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -30,18 +35,15 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     CinemaTicketTheme {
-        Greeting("Android")
+        BookingScreen(
+            days = days,
+            hours = hours
+        )
     }
 }

@@ -15,6 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.elhady.cinematicket.ui.components.CircularIcon
+import com.elhady.cinematicket.ui.components.MovieInfo
 import com.elhady.cinematicket.ui.screen.booking.components.BottomSheet
 import com.elhady.cinematicket.ui.screen.booking.components.ScreenCinema
 import com.elhady.cinematicket.ui.screen.booking.components.SeatSelection
@@ -27,12 +28,13 @@ import com.elhady.cinematicket.ui.screen.booking.model.hours
 fun BookingScreen(
     days: List<Day>,
     hours: List<Hours>,
-    viewModel: BookingViewModel = viewModel()
+    viewModel: BookingViewModel = viewModel(),
+    modifier: Modifier = Modifier
 ) {
     val state by viewModel.uiState.collectAsState()
 
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .background(Color.Black)
             .verticalScroll(rememberScrollState())
@@ -50,5 +52,5 @@ fun BookingScreen(
 @Preview(showSystemUi = true)
 @Composable
 fun BookingScreenPreview() {
-    BookingScreen(days = days, hours = hours)
+    BookingScreen(days = days, hours = hours,)
 }
