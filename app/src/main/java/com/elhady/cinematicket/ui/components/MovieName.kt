@@ -1,4 +1,4 @@
-package com.elhady.cinematicket.ui.screen.home.components
+package com.elhady.cinematicket.ui.components
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
@@ -15,11 +15,13 @@ fun MovieName(
     movieName: String
 ) {
     Text(
-        modifier = modifier.padding(vertical = 16.dp, horizontal = 32.dp),
+        modifier = modifier.padding(horizontal = 16.dp)
+            .padding(bottom = 16.dp),
         text = movieName,
-        style = MaterialTheme.typography.titleLarge.copy(color = Color.Black),
-        maxLines = 2,
-        minLines = 2
+        style = MaterialTheme.typography.titleLarge,
+        maxLines = 3,
+        minLines = 2,
+
     )
 }
 

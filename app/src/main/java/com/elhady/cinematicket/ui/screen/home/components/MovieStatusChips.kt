@@ -2,39 +2,36 @@ package com.elhady.cinematicket.ui.screen.home.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.elhady.cinematicket.ui.components.Chip
+import com.elhady.cinematicket.ui.theme.Orange
 
 @Composable
-fun HomeHeader(
-    modifier: Modifier = Modifier,
-    selectedTab: Int = 0,
-    onTabSelected: (Int) -> Unit = {}
+fun MovieStatusChips(
+    modifier: Modifier = Modifier.Companion
 ) {
     Row(
-        modifier = modifier
-            .padding(16.dp),
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-        ) {
+        modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
         Chip(
             tag = "Now Showing",
-            isSelected = selectedTab == 0,
-            onClick = { onTabSelected(0) }
+            borderWidth = 0.dp,
+            textColor = Color.Companion.White,
+            backgroundColor = Orange,
         )
         Chip(
             tag = "Coming Soon",
-            isSelected = selectedTab == 1,
-            onClick = { onTabSelected(1) }
         )
     }
 }
 
-@Preview
 @Composable
-fun HomeHeaderPreview() {
-    HomeHeader()
+@Preview
+fun MovieStatusChipsPreview() {
+    MovieStatusChips()
 }
